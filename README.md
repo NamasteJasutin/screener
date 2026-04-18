@@ -35,9 +35,17 @@ On Windows and macOS, the native windowing system is used automatically — no e
 
 ## Install
 
-**Download a binary** from the [Releases](https://github.com/NamasteJasutin/screener/releases) page and put it somewhere in your `PATH`.
+**Option 1 — Go install** (requires Go 1.22+):
 
-Or build from source (requires Go 1.22+):
+```bash
+go install github.com/NamasteJasutin/screener/cmd/screener@latest
+```
+
+The binary is placed in `~/go/bin/screener` and is immediately available on your PATH.
+
+**Option 2 — Download a binary** from the [Releases](https://github.com/NamasteJasutin/screener/releases) page and put it somewhere in your `PATH`.
+
+**Option 3 — Build from source** (requires Go 1.22+):
 
 ```bash
 git clone https://github.com/NamasteJasutin/screener.git
