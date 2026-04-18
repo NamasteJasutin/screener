@@ -70,10 +70,7 @@ done
 # Copy native binary to dist/screener for convenience
 cp "${DIST}/screener-linux-amd64" "${DIST}/screener" 2>/dev/null || true
 
-# ── 5. Zip Windows binary ─────────────────────────────────────────────────────
-(cd "${DIST}" && zip -q screener-windows-amd64.zip screener-windows-amd64.exe)
-
-# ── 6. Tag and push ───────────────────────────────────────────────────────────
+# ── 5. Tag and push ───────────────────────────────────────────────────────────
 printf '==> tagging %s\n' "${TAG}"
 git -C "${ROOT_DIR}" tag -a "${TAG}" -m "Release ${TAG}"
 git -C "${ROOT_DIR}" push origin main
@@ -87,7 +84,7 @@ ASSETS=(
   "${DIST}/screener-linux-arm64"
   "${DIST}/screener-darwin-amd64"
   "${DIST}/screener-darwin-arm64"
-  "${DIST}/screener-windows-amd64.zip"
+  "${DIST}/screener-windows-amd64.exe"
 )
 
 gh release create "${TAG}" \
@@ -104,7 +101,7 @@ gh release create "${TAG}" \
 | Linux ARM64 | \`screener-linux-arm64\` |
 | macOS x86-64 | \`screener-darwin-amd64\` |
 | macOS Apple Silicon | \`screener-darwin-arm64\` |
-| Windows x86-64 | \`screener-windows-amd64.zip\` |
+| Windows x86-64 | \`screener-windows-amd64.exe\` |
 
 ### Linux / macOS
 
@@ -115,7 +112,7 @@ chmod +x screener-linux-amd64
 
 ### Windows
 
-Extract \`screener-windows-amd64.zip\` and run \`screener-windows-amd64.exe\` from Windows Terminal or PowerShell.
+Run \`screener-windows-amd64.exe\` from Windows Terminal or PowerShell.
 NOTES
 )" \
   "${ASSETS[@]}"
