@@ -1,0 +1,5 @@
+dist/
+*.sha256
+SHA256SUMS
+*.log
+cover.out
