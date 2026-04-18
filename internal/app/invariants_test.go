@@ -3,8 +3,8 @@ package app
 import (
 	"strings"
 	"testing"
-	"screener/internal/core"
-	"screener/internal/scrcpy"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/scrcpy"
 )
 
 // INV-1: Preview string == executed binary+args (including --serial)

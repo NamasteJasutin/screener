@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"screener/internal/core"
-	"screener/internal/platform"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/platform"
 )
 
 func TestParseDevicesLong(t *testing.T) {

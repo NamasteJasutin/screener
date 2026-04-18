@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"testing"
-	"screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/core"
 )
 
 // ── Adversarial: endpoint FailureCount renders correctly ─────────────────────

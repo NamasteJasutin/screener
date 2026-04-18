@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"screener/internal/core"
-	"screener/internal/platform"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/platform"
 )
 
 type ParsedDevice struct {

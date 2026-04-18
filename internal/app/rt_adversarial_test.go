@@ -8,9 +8,9 @@ import (
 	"unicode/utf8"
 
 	tea "charm.land/bubbletea/v2"
-	"screener/internal/adb"
-	"screener/internal/core"
-	"screener/internal/scrcpy"
+	"github.com/NamasteJasutin/screener/internal/adb"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/scrcpy"
 )
 
 // ── Boundary: zero-width terminal ────────────────────────────────────────────

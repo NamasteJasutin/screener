@@ -1,4 +1,4 @@
-module screener
+module github.com/NamasteJasutin/screener
 
 go 1.25.0
 

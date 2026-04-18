@@ -6,8 +6,8 @@ import (
 	"os"
 
 	tea "charm.land/bubbletea/v2"
-	"screener/internal/app"
-	"screener/internal/persistence"
+	"github.com/NamasteJasutin/screener/internal/app"
+	"github.com/NamasteJasutin/screener/internal/persistence"
 )
 
 // Injected at build time via -ldflags "-X main.Version=... -X main.CommitHash=... -X main.BuildDate=..."

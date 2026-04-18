@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/core"
 )
 
 func TestDefaultConfigIncludesBuiltIns(t *testing.T) {

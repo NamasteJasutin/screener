@@ -13,10 +13,10 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
-	"screener/internal/adb"
-	"screener/internal/core"
-	"screener/internal/persistence"
-	"screener/internal/scrcpy"
+	"github.com/NamasteJasutin/screener/internal/adb"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/persistence"
+	"github.com/NamasteJasutin/screener/internal/scrcpy"
 )
 
 func TestTogglePreferH265UpdatesProfileAndPreview(t *testing.T) {

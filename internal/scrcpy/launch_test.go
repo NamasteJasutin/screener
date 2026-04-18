@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/core"
 )
 
 func TestPreviewExecutionParity(t *testing.T) {

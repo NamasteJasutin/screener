@@ -3,7 +3,7 @@ package app
 import (
 	"strings"
 	"testing"
-	"screener/internal/ui"
+	"github.com/NamasteJasutin/screener/internal/ui"
 )
 
 // RT: Verify whether lipgloss word-wraps profile names that exceed pane content width,

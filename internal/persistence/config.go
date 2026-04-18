@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/core"
 )
 
 type Config struct {

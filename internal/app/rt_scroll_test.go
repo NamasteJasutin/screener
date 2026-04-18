@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 	tea "charm.land/bubbletea/v2"
-	"screener/internal/ui"
+	"github.com/NamasteJasutin/screener/internal/ui"
 )
 
 // RedTeam: The scroll indicator uses an en-dash (–, U+2013) and the test

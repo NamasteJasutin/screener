@@ -14,13 +14,13 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
 
-	"screener/internal/adb"
-	"screener/internal/core"
-	"screener/internal/persistence"
-	"screener/internal/platform"
-	"screener/internal/render"
-	"screener/internal/scrcpy"
-	"screener/internal/ui"
+	"github.com/NamasteJasutin/screener/internal/adb"
+	"github.com/NamasteJasutin/screener/internal/core"
+	"github.com/NamasteJasutin/screener/internal/persistence"
+	"github.com/NamasteJasutin/screener/internal/platform"
+	"github.com/NamasteJasutin/screener/internal/render"
+	"github.com/NamasteJasutin/screener/internal/scrcpy"
+	"github.com/NamasteJasutin/screener/internal/ui"
 )
 
 // ── Overlay / focus enums ─────────────────────────────────────────────────────
