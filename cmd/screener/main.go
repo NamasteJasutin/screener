@@ -7,6 +7,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/NamasteJasutin/screener/internal/app"
+	"github.com/NamasteJasutin/screener/internal/doctor"
 	"github.com/NamasteJasutin/screener/internal/persistence"
 )
 
@@ -25,6 +26,13 @@ func versionString() string {
 }
 
 func main() {
+	// ── doctor subcommand ─────────────────────────────────────────────────────
+	if len(os.Args) > 1 && os.Args[1] == "doctor" {
+		runDoctor(os.Args[2:])
+		return
+	}
+
+	// ── Main TUI ──────────────────────────────────────────────────────────────
 	var (
 		showVersion bool
 		configPath  string
@@ -41,6 +49,7 @@ func main() {
 
 Usage:
   screener [flags]
+  screener doctor [--dry-run] [--bin-dir <path>] [--clean-start]
 
 Flags:
   --version          print version and exit
@@ -84,6 +93,53 @@ Log:     %s
 	}
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "screener failed: %v\n", err)
+		os.Exit(1)
+	}
+}
+
+// runDoctor parses doctor-specific flags and runs the doctor check.
+func runDoctor(args []string) {
+	fs := flag.NewFlagSet("doctor", flag.ExitOnError)
+	var (
+		dryRun     bool
+		binDir     string
+		configPath string
+		cleanStart bool
+	)
+	fs.BoolVar(&dryRun, "dry-run", false, "report issues without making any changes")
+	fs.StringVar(&binDir, "bin-dir", "", "directory for downloaded binaries (default: ~/.screener/bin)")
+	fs.StringVar(&configPath, "config", "", "config file path (default: ~/.config/screener/config.json)")
+	fs.BoolVar(&cleanStart, "clean-start", false, "prompt to wipe config and start fresh")
+	fs.Usage = func() {
+		fmt.Fprintln(os.Stdout, "Usage: screener doctor [--dry-run] [--bin-dir <path>] [--config <path>] [--clean-start]")
+		fs.PrintDefaults()
+	}
+	_ = fs.Parse(args)
+
+	if configPath == "" {
+		configPath = persistence.DefaultConfigPath()
+	}
+
+	if cleanStart {
+		deleted, err := doctor.CleanStart(doctor.CleanStartOptions{
+			ConfigPath: configPath,
+		})
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "clean-start: %v\n", err)
+			os.Exit(1)
+		}
+		if !deleted {
+			return
+		}
+		fmt.Println()
+	}
+
+	if err := doctor.Run(doctor.DoctorOptions{
+		ConfigPath: configPath,
+		BinDir:     binDir,
+		DryRun:     dryRun,
+	}); err != nil {
+		fmt.Fprintf(os.Stderr, "doctor: %v\n", err)
 		os.Exit(1)
 	}
 }
