@@ -23,7 +23,7 @@ printf '==> test (with race detector)\n'
 "${GO_BIN}" test -race ./...
 
 # ── 2. Build matrix ───────────────────────────────────────────────────────────
-VERSION="0.420"
+VERSION="0.430"
 COMMIT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 BUILD_DATE=$(date -u +%Y-%m-%d)
 LDFLAGS="-s -w -X main.Version=${VERSION} -X main.CommitHash=${COMMIT} -X main.BuildDate=${BUILD_DATE}"
